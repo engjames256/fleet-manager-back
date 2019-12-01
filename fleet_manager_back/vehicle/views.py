@@ -73,6 +73,7 @@ from .models import (
     ThirdPartiesInvolved,
     AccidentVor,
     WriteOff,
+    AccidentCosts,
 )
 from .serializers import (
     VehicleInsuranceCompanySerializer,
@@ -148,13 +149,23 @@ from .serializers import (
     ThirdPartiesInvolvedSerializer,
     AccidentVorSerializer,
     WriteOffSerializer,
+    AccidentCostsSerializer,
 )
 from rest_framework.permissions import IsAuthenticated
+
+
+class AccidentCotsView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = AccidentCosts.objects.all()
+    serializer_class = AccidentCostsSerializer
+
 
 class WriteOffView(viewsets.ModelViewSet):
     permission_class = [IsAuthenticated]
     queryset = WriteOff.objects.all()
     serializer_class = WriteOffSerializer
+
+
 class AccidentVorView(viewsets.ModelViewSet):
     permission_class = [IsAuthenticated]
     queryset = AccidentVor.objects.all()

@@ -73,7 +73,14 @@ from .models import (
     ThirdPartiesInvolved,
     AccidentVor,
     WriteOff,
+    AccidentCosts,
 )
+
+
+class AccidentCostsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AccidentCosts
+        fields = "__all__"
 
 
 class WriteOffSerializer(serializers.ModelSerializer):

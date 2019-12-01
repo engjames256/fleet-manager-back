@@ -1,5 +1,10 @@
 from django.db import models
+class AccidentCosts(models.Model):
+    accident_costs_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.accident_costs_name
 class WriteOff(models.Model):
     write_off_name = models.CharField(max_length=250)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -726,6 +731,22 @@ class AccidentDetails(models.Model):
 
 class AccidentVor(models.Model):
     write_off= models.ForeignKey(WriteOff, on_delete=models.CASCADE)
+    accident_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
+
+
+class AccidentCosts(models.Model):
+    estimated_accident_damage = models.CharField(max_length=60)
+    estimated_towing_costs = models.CharField(max_length=60)
+    estimated_associated_costs = models.CharField(max_length=60)
+    estimated_suplimentary_costs = models.CharField(max_length=60)
+    estimated_wild_screen_glass_costs = models.CharField(max_length=60)
+    estimated_total_costs = models.CharField(max_length=60)
+    actual_accident_damage = models.CharField(max_length=60)
+    actual_towing_costs = models.CharField(max_length=60) 
+    actual_associated_costs = models.CharField(max_length=60)
+    actual_suplimentary_costs = models.CharField(max_length=60)
+    actual_wild_screen_glass_costs = models.CharField(max_length=60)
+    actual_total_costs = models.CharField(max_length=60)
     accident_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 class VehicleAllocation(models.Model):
     driver_name = models.CharField(max_length=60)

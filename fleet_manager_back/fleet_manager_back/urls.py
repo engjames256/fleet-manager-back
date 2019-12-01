@@ -35,6 +35,7 @@ from vehicle.views import (
     VehicleRepairView,
     VehicleAccidentView,
 )
+from customer_relations.views import CustomerRelationsView
 from vehicle_hire.views import (
     VehicleHireView,
     VehicleHireRentalRevenueView,
@@ -101,6 +102,7 @@ router.register(r"vehicleassets", VehicleAssetsView)
 router.register(r"vehiclenotes", VehicleNotesView)
 router.register(r"vehiclerepair", VehicleRepairView)
 router.register(r"vehicleaccident", VehicleRepairView)
+router.register(r"customerrelations", CustomerRelationsView)
 
 router.register(r'vehiclehire',VehicleHireView)
 router.register(r'vehiclehirecostcenter',VehicleHireCostCenterView)
